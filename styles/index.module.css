@@ -1,4 +1,15 @@
-.teste {
-    color: fuchsia;
-    font-size: 100px
+.headerNavBar {
+    background-color: aqua;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+
+.textNavBar {
+    color: hotpink;
+    font-size: 30px;
+    position: absolute;
+    left: 50%
 }
