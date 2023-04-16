@@ -1,5 +1,7 @@
 import styles from "../../styles/index.module.css";
 import Link from 'next/link'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 
 export default function HeaderNavBar() {
     const routes =
@@ -13,9 +15,9 @@ export default function HeaderNavBar() {
         }]
     const links = routes.map(route => (
         <Link href={route.path} key={route.path}>
-            <button>
+            <Button variant="warning">
                 {route.text}
-            </button>
+            </Button>
         </Link>
     ))
     return (
