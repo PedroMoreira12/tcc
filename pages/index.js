@@ -1,12 +1,14 @@
-import Layout from "../components/common/Layout";
+import { placeHolder } from "../utils/constants/texts-constants";
 
 // noinspection JSUnusedGlobalSymbols
 export default function Home() {
-  return (
-      <>
-        <Layout>
-            <p>HOME</p>
-        </Layout>
-      </>
+    return (
+        <>
+            <div>
+                HOME
+                <br />
+                {placeHolder}
+            </div>
+        </>
   )
 }

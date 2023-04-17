@@ -1,12 +1,14 @@
-import Layout from "../components/common/Layout";
+import { placeHolder } from "../utils/constants/texts-constants";
 
 // noinspection JSUnusedGlobalSymbols
-export default function Home() {
+export default function Whatsapp() {
     return (
         <>
-            <Layout>
-                <p>WHATSAPP</p>
-            </Layout>
+            <div>
+                WHATSAPP
+                <br />
+                { placeHolder }
+            </div>
         </>
     )
 }
