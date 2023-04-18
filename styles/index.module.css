@@ -1,24 +1,24 @@
 .headerNavBar {
-    background-color: navy;
+    background-color: cadetblue;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 10%;
+    height: 7%;
 }
 
 .textNavBar {
     color: white;
     font-size: 30px;
     position: absolute;
-    right: 0;
+    right: 70%;
 }
 
 .logoStart {
     position: absolute;
-    left: 0;
+    left: 3%;
     font-size: 36px;
-    padding: 15px 20px;
+    padding: 5px 20px;
     color: white;
 }
 
@@ -28,7 +28,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 90%;
+    height: 93%;
     display: flex;
     justify-content: center;
 }
@@ -36,7 +36,7 @@
 .highlightedContent {
     background-color: white;
     position: absolute;
-    width: 40%;
+    width: 100%;
     height: 100%;
     bottom: 0;
 }
