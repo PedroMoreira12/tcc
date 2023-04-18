@@ -51,6 +51,7 @@ function ResponsiveAppBar() {
                     </Typography>
 
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <Box width="3.3%" display="inline-block" />
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {routes.map((route, index) => (
                             <Link href={route.path} style={{textDecoration: 'none'}} key={index}>

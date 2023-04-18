@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 import MarkdownReact from './Markdown';
 
 export default function Posts(props) {
-    const { posts, title } = props;
+    const { posts } = props;
 
     return (
         <Grid
@@ -18,10 +18,6 @@ export default function Posts(props) {
                 },
             }}
         >
-            <Typography variant="h6" gutterBottom>
-                {title}
-            </Typography>
-            <Divider />
             {posts.map((post, index) => (
                 <MarkdownReact className="markdown" key={index} children={post} />
             ))}

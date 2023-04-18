@@ -6,7 +6,7 @@ export default function Layout({ children }) {
         <>
             <ResponsiveAppBar />
             <Box display="flex">
-                <Box width="30%" display="inline-block" />
+                <Box width="25%" display="inline-block" />
                 <Box flexGrow={1}>{children}</Box>
             </Box>
         </>

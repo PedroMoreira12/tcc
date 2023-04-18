@@ -6,7 +6,7 @@ export default function Whatsapp() {
     return (
         <>
             <div>
-                <Posts title="WhatsApp" posts={posts} />
+                <Posts posts={posts} />
             </div>
         </>
     )
