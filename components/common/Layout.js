@@ -1,12 +1,14 @@
-import HeaderNavBar from "./HeaderNavBar";
-import BodyContent from "./BodyContent";
 import ResponsiveAppBar from "./HeaderNavBar";
+import Box from '@mui/material/Box';
 
 export default function Layout({ children }) {
     return (
         <>
             <ResponsiveAppBar />
-            {children}
+            <Box display="flex">
+                <Box width="30%" display="inline-block" />
+                <Box flexGrow={1}>{children}</Box>
+            </Box>
         </>
     )
 }

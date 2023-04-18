@@ -1,13 +1,12 @@
-import { placeHolder } from "../utils/constants/texts-constants";
+import Posts from "../components/common/Posts"
+import { posts } from "../utils/posts/whatsappPosts"
 
 // noinspection JSUnusedGlobalSymbols
 export default function Whatsapp() {
     return (
         <>
             <div>
-                WHATSAPP
-                <br />
-                { placeHolder }
+                <Posts title="WhatsApp" posts={posts} />
             </div>
         </>
     )
