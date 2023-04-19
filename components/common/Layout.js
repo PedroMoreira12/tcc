@@ -1,17 +1,15 @@
 import ResponsiveAppBar from "./HeaderNavBar";
 import SideBar from "./SideBar";
-import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 
-export default function Layout({ children }) {
+export default function Layout({ children, changeState }) {
     return (
         <>
             <ResponsiveAppBar />
             <Box display="flex">
                 <Box width="25%" display="inline-block">
-                    <SideBar />
+                    <SideBar changeState={changeState}/>
                 </Box>
-                <Divider orientation="vertical" flexItem sx={{ marginLeft: '-0.5%' }}></Divider>
                 <Box flexGrow={1}>{children}</Box>
             </Box>
         </>

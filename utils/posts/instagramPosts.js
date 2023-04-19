@@ -1,4 +1,4 @@
-const post1 = '# Sample blog post\n' +
+const post1 = '# Instagram sample blog post\n' +
     '\n' +
     '_April 1, 2020 by [Olivier](/)_\n' +
     '\n' +
@@ -22,7 +22,7 @@ const post1 = '# Sample blog post\n' +
     'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.\n' +
     'Morbi leo risus, porta ac consectetur ac, vestibulum at eros.\n' +
     '\n' +
-    '![Example image](./teste.jpg)\n' +
+    '![Example image](./teste3.jpg)\n' +
     '\n' +
     '### Sub-heading 1\n' +
     '\n' +
@@ -47,7 +47,7 @@ const post1 = '# Sample blog post\n' +
     '\n' +
     'Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.'
 
-const post2 = '# Sample blog post 2\n' +
+const post2 = '# Instagram sample blog post 2\n' +
     '\n' +
     '_March 23, 2020 by [Matt](/)_\n' +
     '\n' +
@@ -65,7 +65,7 @@ const post2 = '# Sample blog post 2\n' +
     'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.\n' +
     'Morbi leo risus, porta ac consectetur ac, vestibulum at eros.'
 
-const post3 = '# Sample blog post 3\n' +
+const post3 = '# Instagram sample blog post 3\n' +
     '\n' +
     '_April 1, 2020 by [Olivier](/)_\n' +
     '\n' +
@@ -134,9 +134,9 @@ const post4 = '# Another blog post\n' +
 
 export const posts = [post1,post2,post3,post4]
 
-export const whatsappTitles = [
-    'Sample blog post',
-    'Sample blog post 2',
-    'Sample blog post 3',
+export const instagramTitles = [
+    'Instagram sample blog post',
+    'Instagram sample blog post 2',
+    'Instagram sample blog post 3',
     'Another blog post'
 ]

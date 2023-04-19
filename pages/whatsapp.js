@@ -1,12 +1,11 @@
 import Posts from "../components/common/Posts"
 import { posts } from "../utils/posts/whatsappPosts"
-import Layout from "../components/common/Layout";
 
 // noinspection JSUnusedGlobalSymbols
-export default function Whatsapp() {
+export default function Whatsapp({ postTitleStates }) {
     return (
         <>
-            <Posts posts={posts} />
+            <Posts posts={posts} postTitleStates={postTitleStates} />
         </>
     )
 }

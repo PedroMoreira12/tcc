@@ -1,11 +1,29 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import MarkdownReact from './Markdown';
+import Divider from '@mui/material/Divider';
+import { useRouter } from "next/router";
 
-export default function Posts(props) {
-    const { posts } = props;
+export default function Posts({ posts, postTitleStates }) {
+    const router = useRouter()
+    const postRefs = React.useRef([]);
+
+    React.useEffect(() => {
+        if (postTitleStates) {
+            Object.entries(postTitleStates).forEach(([postIndex, shouldScroll]) => {
+                if (shouldScroll && postRefs.current[postIndex]) {
+                    postRefs.current[postIndex].scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        }
+    }, [postTitleStates]);
+
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [router.asPath])
 
     return (
         <Grid
@@ -19,7 +37,10 @@ export default function Posts(props) {
             }}
         >
             {posts.map((post, index) => (
-                <MarkdownReact className="markdown" key={index} children={post} />
+                <div key={index} ref={ref => postRefs.current[index] = ref}>
+                    <MarkdownReact className="markdown" key={index} children={post} />
+                    {index < posts.length - 1 && <Divider sx={{ my: 4 }} />}
+                </div>
             ))}
         </Grid>
     );
