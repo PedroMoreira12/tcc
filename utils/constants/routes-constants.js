@@ -1,5 +1,9 @@
 export const routes = [
     {
+        path: '/',
+        text: 'Início'
+    },
+    {
         path: '/whatsapp',
         text: 'WhatsApp'
     },

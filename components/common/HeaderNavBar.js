@@ -10,14 +10,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { routes } from '../../utils/constants/routes-constants'
+import { useRouter } from 'next/router';
 import Link from "next/link";
 
 const settings = ['Profile'];
 
 function ResponsiveAppBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const router = useRouter();
+    const isActive = (path) => {
+        return path === router.asPath
+    }
 
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
@@ -31,14 +35,14 @@ function ResponsiveAppBar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
                         sx={{
-                            mr: 2,
+                            ml: '-5%',
+                            mr: 1,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -50,17 +54,17 @@ function ResponsiveAppBar() {
                         LOGO
                     </Typography>
 
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Box width="3.3%" display="inline-block" />
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ flexGrow: 1, display: { md: 'flex' }, ml: '11%' }}>
                         {routes.map((route, index) => (
                             <Link href={route.path} style={{textDecoration: 'none'}} key={index}>
                                 <Button
                                     key={route.text}
                                     sx={{
                                         my: 2,
+                                        mr: 3,
                                         color: 'white',
-                                        display: 'block'
+                                        display: 'block',
+                                        backgroundColor: isActive(route.path) ? "#87CEFA" : ""
                                 }}
                                 >
                                     {route.text}
@@ -72,7 +76,7 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="" />
+                                <Avatar alt="Remy Sharp" src=""/>
                             </IconButton>
                         </Tooltip>
                         <Menu
