@@ -14,6 +14,7 @@ export default function SideBar({ changeState }) {
             alignItems="flex-start"
             justifyContent="start"
             height="100vh"
+            style={{ position: 'sticky', top: 0 }}
         >
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start'}}>
                 {titles[pathname]?.map((title, index) => (
