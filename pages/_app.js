@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import Layout from "../components/common/Layout";
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/router';
 
 // noinspection JSUnusedGlobalSymbols
 export default function MyApp({ Component, pageProps }) {
