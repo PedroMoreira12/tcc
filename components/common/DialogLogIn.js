@@ -5,6 +5,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import * as React from "react";
+import axios from "axios";
 
 export default function DialogLogIn() {
     const [open, setOpen] = React.useState(false);
@@ -19,14 +20,21 @@ export default function DialogLogIn() {
         setOpen(false);
     };
 
-    const submitForm = (event) => {
+    async function submitForm (event) {
         event.preventDefault();
-        const username = usernameRef.current.value;
-        const password = passwordRef.current.value;
-        console.log('username:', username);
-        console.log('password:', password);
+        try {
+            const username = usernameRef.current.value;
+            const password = passwordRef.current.value;
 
+            const response = await axios.post('/api/login', {username, password})
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+        handleClose()
+        window.location.reload();
     }
+
     return (
         <>
             <div onClick={handleClickOpen}>
@@ -56,7 +64,7 @@ export default function DialogLogIn() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={submitForm}>Subscribe</Button>
+                    <Button onClick={submitForm}>Log In</Button>
                 </DialogActions>
             </Dialog>
         </>

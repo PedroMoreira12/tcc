@@ -1,3 +1,4 @@
+import axios from 'axios'
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import TextField from "@mui/material/TextField";
@@ -21,14 +22,21 @@ export default function DialogSignUp() {
         setOpen(false);
     };
 
-    const submitForm = (event) => {
+    async function submitForm (event) {
         event.preventDefault();
-        const name = nameRef.current.value;
-        const username = usernameRef.current.value;
-        const password = passwordRef.current.value;
-        console.log('name:', name);
-        console.log('username:', username);
-        console.log('password:', password);
+        try {
+            const name = nameRef.current.value;
+            const username = usernameRef.current.value;
+            const password = passwordRef.current.value;
+
+            const response = await axios.post('/api/', {name, username, password})
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+        handleClose()
+        window.location.reload();
+
 
     }
     return (
@@ -39,33 +47,35 @@ export default function DialogSignUp() {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Sign Up</DialogTitle>
                 <DialogContent>
-                    <TextField
-                        margin="dense"
-                        id="name-input"
-                        label="Name"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        inputRef={nameRef}
-                    />
-                    <TextField
-                        margin="dense"
-                        id="username-input"
-                        label="Username"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        inputRef={usernameRef}
-                    />
-                    <TextField
-                        margin="dense"
-                        id="password-input"
-                        label="Password"
-                        type="password"
-                        fullWidth
-                        variant="standard"
-                        inputRef={passwordRef}
-                    />
+                    <form>
+                        <TextField
+                            margin="dense"
+                            id="name-input"
+                            label="Name"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            inputRef={nameRef}
+                        />
+                        <TextField
+                            margin="dense"
+                            id="username-input"
+                            label="Username"
+                            type="text"
+                            fullWidth
+                            variant="standard"
+                            inputRef={usernameRef}
+                        />
+                        <TextField
+                            margin="dense"
+                            id="password-input"
+                            label="Password"
+                            type="password"
+                            fullWidth
+                            variant="standard"
+                            inputRef={passwordRef}
+                        />
+                    </form>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
