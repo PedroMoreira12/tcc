@@ -6,6 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import * as React from "react";
+import { useState } from 'react';
 
 
 export default function DialogSignUp() {
@@ -13,6 +14,11 @@ export default function DialogSignUp() {
     const nameRef = React.useRef(null);
     const usernameRef = React.useRef(null);
     const passwordRef = React.useRef(null);
+    const [formErrors, setFormErrors] = useState({
+        name: '',
+        username: '',
+        password: '',
+    });
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -22,8 +28,41 @@ export default function DialogSignUp() {
         setOpen(false);
     };
 
+    const validateForm = () => {
+        const errors = {
+            name: '',
+            username: '',
+            password: '',
+        };
+        let isValid = true;
+
+        if (!nameRef.current.value.trim()) {
+            errors.name = 'Name is required';
+            isValid = false;
+        }
+
+        if (!usernameRef.current.value.trim()) {
+            errors.username = 'Username is required';
+            isValid = false;
+        }
+
+        if (passwordRef.current.value.trim().length < 8) {
+            errors.password = 'Password must be at least 8 characters';
+            isValid = false;
+        }
+
+        setFormErrors(errors);
+
+        return isValid;
+    };
+
     async function submitForm (event) {
         event.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
         try {
             const name = nameRef.current.value;
             const username = usernameRef.current.value;
@@ -56,6 +95,8 @@ export default function DialogSignUp() {
                             fullWidth
                             variant="standard"
                             inputRef={nameRef}
+                            error={!!formErrors.name}
+                            helperText={formErrors.name}
                         />
                         <TextField
                             margin="dense"
@@ -65,6 +106,8 @@ export default function DialogSignUp() {
                             fullWidth
                             variant="standard"
                             inputRef={usernameRef}
+                            error={!!formErrors.username}
+                            helperText={formErrors.username}
                         />
                         <TextField
                             margin="dense"
@@ -74,6 +117,8 @@ export default function DialogSignUp() {
                             fullWidth
                             variant="standard"
                             inputRef={passwordRef}
+                            error={!!formErrors.password}
+                            helperText={formErrors.password}
                         />
                     </form>
                 </DialogContent>
