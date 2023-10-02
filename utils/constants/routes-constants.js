@@ -16,7 +16,7 @@ export const routes = [
         text: 'Email'
     },
     {
-        path: '/forum',
-        text: 'Forum'
+        path: '/mural',
+        text: 'Mural'
     }
 ]
