@@ -12,6 +12,7 @@ import cookie from 'cookie';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+import Typography from '@mui/material/Typography';
 
 export default function UserMenu() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -94,8 +95,10 @@ export default function UserMenu() {
                 </Menu>
             </Box>
             ) : (
-            <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 0}}>
-                <span> Hello {username}, </span>
+            <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 0 }}>
+                <Typography variant="body1" sx={{ fontFamily: 'Helvetica', mr: 0 }}>
+                   {username},
+                </Typography>
                 <Button
                     key={myCookieValue}
                     onClick={handleLogout}

@@ -5,7 +5,7 @@ export default async function getAllPostsHandler(req, res) {
     try {
         await connectDb();
 
-        const posts = await Post.find({}, 'title body'); // Retrieve only title and body fields
+        const posts = await Post.find({}, 'title body user'); // Retrieve only title and body fields
 
         res.status(200).json({ posts });
     } catch (error) {

@@ -84,7 +84,7 @@ export default function Mural() {
             ) : null}
             <div style={styles.postsContainer}>
                 {posts.map((post) => (
-                    <Post key={post._id} title={post.title} body={post.body} />
+                    <Post key={post._id} userId={post.user} title={post.title} body={post.body} />
                 ))}
             </div>
             <NewPostDialog
@@ -102,7 +102,7 @@ const styles = {
         flexDirection: 'column',
         alignItems: 'flex-start',
         paddingTop: '20px',
-        paddingLeft: '400px',
+        paddingLeft: '10%',
     },
     postsContainer: {
         marginTop: '20px',

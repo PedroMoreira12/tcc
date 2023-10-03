@@ -2,19 +2,17 @@ import React, {useEffect, useState} from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import cookie from "cookie";
-import jwt from "jsonwebtoken";
 import axios from "axios";
 
 const useStyles = {
     card: {
         marginBottom: '16px',
         backgroundColor: 'lightblue',
-        maxWidth: '400px',
+        maxWidth: '800px',
         margin: '0 auto',
     },
     spaceBetweenCards: {
-        height: '16px', // Set the height of the white space
+        height: '16px',
     },
     title: {
         fontSize: '1.5rem',
@@ -27,23 +25,10 @@ const useStyles = {
     },
 };
 
-const Post = ({ title, body }) => {
+const Post = ({ userId, title, body }) => {
     const [username, setUsername] = useState(null);
 
-    async function getId () {
-        try {
-            const cookies = cookie.parse(document.cookie);
-            const token = cookies.token;
-            const decodedToken = jwt.decode(token);
-            const id = decodedToken.id;
-            const response = await axios.get(`/api/id?id=${id}`);
-            return response.data.username;
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    const objectId = getId();
+    const objectId = userId;
 
     useEffect(() => {
         axios.get(`/api/getusername?objectId=${objectId}`)
@@ -66,7 +51,7 @@ const Post = ({ title, body }) => {
                     <Typography variant="body1" sx={useStyles.body}>
                         {body}
                     </Typography>
-                    <p>Post criado por: </p>
+                    <p>Post criado por: {username} </p>
                 </CardContent>
             </Card>
             <div style={useStyles.spaceBetweenCards}></div>

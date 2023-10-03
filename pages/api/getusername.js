@@ -1,16 +1,17 @@
 import connectDb from "../../utils/db";
 import User from "../../models/user";
-import mongoose from "mongoose";
 
 export default async function getUsernameByIdHandler(req, res) {
     try {
         await connectDb();
 
-        const objectId = new mongoose.Types.ObjectId(req.query);
+        const userId = req.query.objectId;
 
-        console.log(objectId)
+        const ObjectId = require('mongodb').ObjectId;
 
-        const user = await User.findOne({ _id: objectId });
+
+        // Use Mongoose's findById method to find a user by _id
+        const user = await User.findById(new ObjectId(userId));
 
         if (!user) {
             // If the user is not found, return a 404 status and message
