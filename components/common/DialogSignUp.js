@@ -63,7 +63,7 @@ export default function DialogSignUp() {
             return;
         }
 
-        try {
+            try {
             const name = nameRef.current.value;
             const username = usernameRef.current.value;
             const password = passwordRef.current.value;
