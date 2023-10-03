@@ -35,7 +35,6 @@ export default function UserMenu() {
             const decodedToken = jwt.decode(token);
             const id = decodedToken.id;
             const response = await axios.get(`/api/id?id=${id}`);
-            console.log(id)
             return response.data.username;
         } catch (error) {
             console.log(error)

@@ -14,8 +14,15 @@ export default function Mural() {
 
     // Fetch posts from your MongoDB database
     useEffect(() => {
-        // Make a request to your backend API to fetch posts and update the 'posts' state
-        // Example: axios.get('/api/posts').then((response) => setPosts(response.data));
+        // Make a GET request to your backend API to fetch posts
+        axios.get('/api/muralposts')
+            .then((response) => {
+                // Update the 'posts' state with the fetched data
+                setPosts(response.data.posts.reverse());
+            })
+            .catch((error) => {
+                console.error('Error fetching posts:', error);
+            });
     }, []);
 
     async function handleCreatePost (newPost) {
@@ -24,10 +31,10 @@ export default function Mural() {
             const post_body = newPost.body
             const user_id = getId();
             const response = await axios.post('/api/mural', {post_title, post_body, user_id})
-            console.log(response)
         } catch (error) {
             console.log(error)
         }
+        window.location.reload();
     }
 
     function getId () {
