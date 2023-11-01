@@ -1,4 +1,4 @@
-import {posts} from "../utils/posts/whatsappPosts";
+import {posts} from "../utils/posts/homePosts";
 import Posts from "../components/common/Posts";
 
 // noinspection JSUnusedGlobalSymbols

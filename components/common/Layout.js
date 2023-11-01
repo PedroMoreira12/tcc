@@ -10,7 +10,7 @@ export default function Layout({ children, changeState }) {
                 <Box width="25%" display="inline-block">
                     <SideBar changeState={changeState}/>
                 </Box>
-                <Box flexGrow={1}>{children}</Box>
+                <Box width="82%" flexGrow={1}>{children}</Box>
             </Box>
         </>
     )

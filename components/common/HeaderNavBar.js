@@ -25,7 +25,7 @@ function ResponsiveAppBar() {
                         component="a"
                         href="/"
                         sx={{
-                            ml: '-5%',
+                            ml: '-8%',
                             mr: 1,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
@@ -35,7 +35,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        ContraGolpes
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { md: 'flex' }, ml: '11%' }}>
